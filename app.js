@@ -16,8 +16,7 @@ const DOMSelectors = {
   $nextQuestionBtn: document.querySelector("#next-question"),
 };
 
-
-// Question data 
+// Question data
 let questionData = null;
 
 // Attach event listener to "Start quiz" button
@@ -25,36 +24,44 @@ export const onStartQuizClick = () => {
   DOMSelectors.$startQuiz?.addEventListener("click", () => {
     // Draw random questions and store data in appropriate data structure
     questionData = data.drawQuestion();
+    // Show question related elements and populate content with question data
+    showQuestion(questionData);
 
-    // Populate elements content with question data
-    DOMSelectors.$questionParaprah.textContent = `${questionData.askedQuestion}`;
-    DOMSelectors.$answerBtn1.textContent = `${questionData.options[0]}`;
-    DOMSelectors.$answerBtn2.textContent = `${questionData.options[1]}`;
-    DOMSelectors.$answerBtn3.textContent = `${questionData.options[2]}`;
-    DOMSelectors.$answerBtn4.textContent = `${questionData.options[3]}`;
-
-    DOMSelectors.$answersContainer.style.visibility = "visible";
-    DOMSelectors.$questionContainer.style.visibility = "visible";
-    DOMSelectors.$levelsContainer.style.visibility = "visible";
-    DOMSelectors.$startQuiz.style.visibility = "hidden";
     handleClickOnAnswerButton();
   });
 };
-
-// Update UI by displaying new question
-export const updateQuestions = () => {
-  questionData = data.drawQuestion();
-  // Populate elements content with next question data
+// Show question related elements and populate content with question data
+export function showQuestion(questionData) {
   DOMSelectors.$questionParaprah.textContent = `${questionData.askedQuestion}`;
   DOMSelectors.$answerBtn1.textContent = `${questionData.options[0]}`;
   DOMSelectors.$answerBtn2.textContent = `${questionData.options[1]}`;
   DOMSelectors.$answerBtn3.textContent = `${questionData.options[2]}`;
   DOMSelectors.$answerBtn4.textContent = `${questionData.options[3]}`;
 
+  DOMSelectors.$answersContainer.style.visibility = "visible";
+  DOMSelectors.$questionContainer.style.visibility = "visible";
+  DOMSelectors.$levelsContainer.style.visibility = "visible";
+
+  if (DOMSelectors.$startQuiz.style.visibility != "hidden") {
+    DOMSelectors.$startQuiz.style.visibility = "hidden";
+  }
+}
+
+// Update UI by displaying new question
+export const updateQuestions = () => {
+  questionData = data.drawQuestion();
+  // Show question related elements and populate content with question data
+  showQuestion(questionData);
+
   // Enable "Answer" buttons once the next question is loaded
+  anableAnswerButtons()
+};
+
+// Disable "Answer" buttons
+export const anableAnswerButtons = () => {
   DOMSelectors.$answerButtons.forEach((button) => {
     button.disabled = false;
-    button.style.backgroundColor = "";
+    button.style.backgroundColor = ""
   });
 };
 
@@ -80,29 +87,36 @@ export const handleClickOnAnswerButton = () => {
 // Update UI when user answers correctly
 export const reactToCorrectAnswer = (button) => {
   button.style.backgroundColor = "green";
-  // Call reactToPrizeLadderChange function to hightlight current earnings
-  reactToPrizeLadderChange();
+  // Call highlightCurrentPrizeLevel function to hightlight current earnings
+  highlightCurrentPrizeLevel();
   //Call function to show appropriate message when answer is correct
   showMessageWhenUserAnswersCorrectly();
   createNextQuestionButton();
 
   // Disable "Answer" buttons
-  DOMSelectors.$answerButtons.forEach((button) => {
-    button.disabled = true;
-  });
+  disableAnswerButtons();
 
   // Stores the guaranteed sum if the conditions are met
   data.handleGuaranteedSum();
 };
+
+// Disable "Answer" buttons
+export const disableAnswerButtons = () => {
+  DOMSelectors.$answerButtons.forEach((button) => {
+    button.disabled = true;
+  });
+};
 // Call this function to hightlight current prize ladder level
-export const reactToPrizeLadderChange = () => {
+export const highlightCurrentPrizeLevel = () => {
   const $prizeLadderLevel = document.querySelector(`.money-levels ul li:nth-of-type(${config.currentPrizeLevel})`);
   config.levelPrice = $prizeLadderLevel.value;
   $prizeLadderLevel.style.backgroundColor = "rgb(255, 102, 0)";
   $prizeLadderLevel.style.color = "white";
 
   if (config.currentPrizeLevel < 15) {
-    const $previousPrizeLadderLevel = document.querySelector(`.money-levels ul li:nth-of-type(${config.currentPrizeLevel + 1})`);
+    const $previousPrizeLadderLevel = document.querySelector(
+      `.money-levels ul li:nth-of-type(${config.currentPrizeLevel + 1})`
+    );
     $prizeLadderLevel.style.backgroundColor = "rgb(255, 102, 0)";
     $previousPrizeLadderLevel.style.backgroundColor = "";
     $previousPrizeLadderLevel.style.color = "";
@@ -138,9 +152,7 @@ export const reactToWrongAnswer = (button) => {
   DOMSelectors.$correctAnswerBtn.style.backgroundColor = "green";
   button.style.backgroundColor = "red";
 
-  DOMSelectors.$answerButtons.forEach((button) => {
-    button.disabled = true;
-  });
+  disableAnswerButtons();
   // Show approprate message when user answers incorrectlly
   showMessageWhenUserAnswersIncorrectly();
 };
@@ -164,8 +176,6 @@ const handleClickOnNextQuestionButton = () => {
   DOMSelectors.$nextQuestionBtn.addEventListener("click", handleNextQuestionClick);
 };
 
-
 export const init = () => {
-    
-  onStartQuizClick()
-}
+  onStartQuizClick();
+};
