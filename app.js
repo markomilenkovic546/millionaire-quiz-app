@@ -16,16 +16,13 @@ const DOMSelectors = {
   $nextQuestionBtn: document.querySelector("#next-question"),
 };
 
-// Question data
-let questionData = null;
-
 // Attach event listener to "Start quiz" button
 export const onStartQuizClick = () => {
   DOMSelectors.$startQuiz?.addEventListener("click", () => {
     // Draw random questions and store data in appropriate data structure
-    questionData = data.drawQuestion();
+     data.drawQuestion();
     // Show question related elements and populate content with question data
-    showQuestion(questionData);
+    showQuestion(config.questionData);
 
     handleClickOnAnswerButton();
   });
@@ -49,9 +46,9 @@ export function showQuestion(questionData) {
 
 // Update UI by displaying new question
 export const updateQuestions = () => {
-  questionData = data.drawQuestion();
+   data.drawQuestion();
   // Show question related elements and populate content with question data
-  showQuestion(questionData);
+  showQuestion(config.questionData);
 
   // Enable "Answer" buttons once the next question is loaded
   anableAnswerButtons()
@@ -69,14 +66,14 @@ export const anableAnswerButtons = () => {
 export const handleClickOnAnswerButton = () => {
   DOMSelectors.$answerButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      if (button.textContent === questionData.questionAnswer) {
+      if (button.textContent === config.questionData.questionAnswer) {
         data.levelUpSum();
         reactToCorrectAnswer(button);
         createNextQuestionButton();
         handleClickOnNextQuestionButton();
       } else {
         DOMSelectors.$correctAnswerBtn = Array.from(DOMSelectors.$answerButtons).find((el) =>
-          el.textContent.includes(`${questionData.questionAnswer}`)
+          el.textContent.includes(`${config.questionData.questionAnswer}`)
         );
         reactToWrongAnswer(button);
       }

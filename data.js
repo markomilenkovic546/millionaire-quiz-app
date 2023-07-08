@@ -12,7 +12,8 @@ export const config = {
   randomIndex: -1,
    currentPrizeLevel: 16,
    guaranteedSum: 0,
-   levelPrice: null
+   levelPrice: null,
+   questionData: null
  }
 
 
@@ -29,7 +30,7 @@ export const drawQuestion = () => {
   // Remove the drawn question from the array
   questionBank.splice(randomIndex, 1);
 
-  return {
+  config.questionData = {
     askedQuestion: randomQuestion.question,
     questionAnswer: randomQuestion.answer,
     options: randomQuestion.options,
