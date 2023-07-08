@@ -1,6 +1,6 @@
-import * as data from "./data.js";
-import { config } from "./data.js";
-const DOMSelectors = {
+import * as data from "./model.js";
+import { config } from "./model.js";
+export const DOMSelectors = {
   $startQuiz: document.querySelector(".start-quiz"),
   $answersContainer: document.querySelector(".answers-container"),
   $questionParaprah: document.querySelector(".question"),
@@ -16,17 +16,6 @@ const DOMSelectors = {
   $nextQuestionBtn: document.querySelector("#next-question"),
 };
 
-// Attach event listener to "Start quiz" button
-export const onStartQuizClick = () => {
-  DOMSelectors.$startQuiz?.addEventListener("click", () => {
-    // Draw random questions and store data in appropriate data structure
-     data.drawQuestion();
-    // Show question related elements and populate content with question data
-    showQuestion(config.questionData);
-
-    handleClickOnAnswerButton();
-  });
-};
 // Show question related elements and populate content with question data
 export function showQuestion(questionData) {
   DOMSelectors.$questionParaprah.textContent = `${questionData.askedQuestion}`;
@@ -34,7 +23,6 @@ export function showQuestion(questionData) {
   DOMSelectors.$answerBtn2.textContent = `${questionData.options[1]}`;
   DOMSelectors.$answerBtn3.textContent = `${questionData.options[2]}`;
   DOMSelectors.$answerBtn4.textContent = `${questionData.options[3]}`;
-
   DOMSelectors.$answersContainer.style.visibility = "visible";
   DOMSelectors.$questionContainer.style.visibility = "visible";
   DOMSelectors.$levelsContainer.style.visibility = "visible";
@@ -46,44 +34,23 @@ export function showQuestion(questionData) {
 
 // Update UI by displaying new question
 export const updateQuestions = () => {
-   data.drawQuestion();
   // Show question related elements and populate content with question data
   showQuestion(config.questionData);
-
   // Enable "Answer" buttons once the next question is loaded
-  anableAnswerButtons()
+  anableAnswerButtons();
 };
 
 // Disable "Answer" buttons
 export const anableAnswerButtons = () => {
   DOMSelectors.$answerButtons.forEach((button) => {
     button.disabled = false;
-    button.style.backgroundColor = ""
-  });
-};
-
-// Attach event listener to "Answer" buttons
-export const handleClickOnAnswerButton = () => {
-  DOMSelectors.$answerButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      if (button.textContent === config.questionData.questionAnswer) {
-        data.levelUpSum();
-        reactToCorrectAnswer(button);
-        createNextQuestionButton();
-        handleClickOnNextQuestionButton();
-      } else {
-        DOMSelectors.$correctAnswerBtn = Array.from(DOMSelectors.$answerButtons).find((el) =>
-          el.textContent.includes(`${config.questionData.questionAnswer}`)
-        );
-        reactToWrongAnswer(button);
-      }
-    });
+    button.style.backgroundColor = "";
   });
 };
 
 // Update UI when user answers correctly
-export const reactToCorrectAnswer = (button) => {
-  button.style.backgroundColor = "green";
+export const reactToCorrectAnswer = (answerButton) => {
+  answerButton.style.backgroundColor = "green";
   // Call highlightCurrentPrizeLevel function to hightlight current earnings
   highlightCurrentPrizeLevel();
   //Call function to show appropriate message when answer is correct
@@ -92,9 +59,6 @@ export const reactToCorrectAnswer = (button) => {
 
   // Disable "Answer" buttons
   disableAnswerButtons();
-
-  // Stores the guaranteed sum if the conditions are met
-  data.handleGuaranteedSum();
 };
 
 // Disable "Answer" buttons
@@ -162,8 +126,7 @@ export const createNextQuestionButton = () => {
   }, 3000);
 };
 
-// Handle Click on "Next question" button event
-const handleClickOnNextQuestionButton = () => {
+export const handleClickOnNextQuestionButton = () => {
   const handleNextQuestionClick = () => {
     updateQuestions();
     DOMSelectors.$nextQuestionBtn.style.visibility = "hidden";
@@ -173,6 +136,16 @@ const handleClickOnNextQuestionButton = () => {
   DOMSelectors.$nextQuestionBtn.addEventListener("click", handleNextQuestionClick);
 };
 
-export const init = () => {
-  onStartQuizClick();
-};
+// Attach event listener to "Start quiz" button
+export function onStartQuizClick(callback) {
+  DOMSelectors.$startQuiz?.addEventListener("click", callback);
+}
+
+// Attach event listener to "Start quiz" button
+export function onAnswerBtnClick(callback) {
+  DOMSelectors.$answerButtons.forEach((answerButton) => {
+    answerButton?.addEventListener("click", (event) => {
+      callback(event.target); // Pass the target button element to the callback
+    });
+  });
+}
