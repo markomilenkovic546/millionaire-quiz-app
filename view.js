@@ -88,11 +88,25 @@ export const highlightCurrentPrizeLevel = () => {
 export const showMessageWhenUserAnswersCorrectly = () => {
   // Display message
   DOMSelectors.$message.style.visibility = "visible";
-  DOMSelectors.$message.textContent = `Correct! You won ${config.levelPrice} $`;
+  if (config.levelPrice === 1000) {
+    DOMSelectors.$message.textContent = `Correct! You have guaranteed ${config.levelPrice} $ !`;
+    DOMSelectors.$message.style.backgroundColor = "green";
+  } else if (config.levelPrice === 32000) {
+    DOMSelectors.$message.textContent = `Correct! You have guaranteed ${config.levelPrice} $ !`;
+    DOMSelectors.$message.style.backgroundColor = "green";
+  } else if (config.levelPrice === 1000000) {
+    DOMSelectors.$message.textContent = `CONGRATS! YOU BECAME A MILLIONAIRE!!!!`;
+    DOMSelectors.$message.style.backgroundColor = "green";
+  } else {
+    DOMSelectors.$message.textContent = `Correct! You won ${config.levelPrice} $`;
+  }
   //Hide message after 3 seconds
-  setTimeout(function () {
+  if (config.levelPrice != 1000000)
+{  setTimeout(function () {
     DOMSelectors.$message.style.visibility = "hidden";
+    DOMSelectors.$message.style.backgroundColor = "rgb(255, 102, 0)";
   }, 3000);
+}
 };
 
 // Show approprate message when user answers incorrectlly
