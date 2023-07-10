@@ -1,5 +1,6 @@
-import * as data from "./model.js";
 import { config } from "./model.js";
+
+// DOM Selectors
 export const DOMSelectors = {
   $startQuiz: document.querySelector(".start-quiz"),
   $answersContainer: document.querySelector(".answers-container"),
@@ -88,11 +89,25 @@ export const highlightCurrentPrizeLevel = () => {
 export const showMessageWhenUserAnswersCorrectly = () => {
   // Display message
   DOMSelectors.$message.style.visibility = "visible";
-  DOMSelectors.$message.textContent = `Correct! You won ${config.levelPrice} $`;
+  if (config.levelPrice === 1000) {
+    DOMSelectors.$message.textContent = `Correct! You have guaranteed ${config.levelPrice} $`;
+    DOMSelectors.$message.style.backgroundColor = "green";
+  } else if (config.levelPrice === 32000) {
+    DOMSelectors.$message.textContent = `Correct! You have guaranteed ${config.levelPrice} $`;
+    DOMSelectors.$message.style.backgroundColor = "green";
+  } else if (config.levelPrice === 1000000) {
+    DOMSelectors.$message.textContent = `CONGRATS! YOU BECAME A MILLIONAIRE!!!!`;
+    DOMSelectors.$message.style.backgroundColor = "green";
+  } else {
+    DOMSelectors.$message.textContent = `Correct! You won ${config.levelPrice} $`;
+  }
   //Hide message after 3 seconds
-  setTimeout(function () {
+  if (config.levelPrice != 1000000)
+{  setTimeout(function () {
     DOMSelectors.$message.style.visibility = "hidden";
+    DOMSelectors.$message.style.backgroundColor = "rgb(255, 102, 0)";
   }, 3000);
+}
 };
 
 // Show approprate message when user answers incorrectlly
@@ -130,19 +145,19 @@ export const handleClickOnNextQuestionButton = () => {
   const handleNextQuestionClick = () => {
     updateQuestions();
     DOMSelectors.$nextQuestionBtn.style.visibility = "hidden";
-    DOMSelectors.$nextQuestionBtn.removeEventListener("click", handleNextQuestionClick);
+    DOMSelectors.$nextQuestionBtn?.removeEventListener("click", handleNextQuestionClick);
   };
 
-  DOMSelectors.$nextQuestionBtn.addEventListener("click", handleNextQuestionClick);
+  DOMSelectors.$nextQuestionBtn?.addEventListener("click", handleNextQuestionClick);
 };
 
 // Attach event listener to "Start quiz" button
-export function onStartQuizClick(callback) {
+export const onStartQuizClick = (callback) => {
   DOMSelectors.$startQuiz?.addEventListener("click", callback);
 }
 
 // Attach event listener to "Start quiz" button
-export function onAnswerBtnClick(callback) {
+export const onAnswerBtnClick = (callback) => {
   DOMSelectors.$answerButtons.forEach((answerButton) => {
     answerButton?.addEventListener("click", (event) => {
       callback(event.target); // Pass the target button element to the callback
