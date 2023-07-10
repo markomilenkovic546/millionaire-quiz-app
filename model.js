@@ -6,17 +6,16 @@ Because first price is represented on the UI as a fifteenth child of the <ul>, i
 
 guaranteedSum - represents the current guaranteed sum the user has. Initial value is 0
 
-levelPrice - represents the prize amount stored for each level.
+levelPrice - represents the prize amount stored for current level.
 */
 export const config = {
-  randomIndex: -1,
    currentPrizeLevel: 16,
    guaranteedSum: 0,
    levelPrice: null,
    questionData: null
  }
 
-
+// Draw random question and store it as questionData object
 export const drawQuestion = () => {
   if (questionBank.length === 0) {
     // Handle the case when all questions have been drawn
@@ -38,7 +37,8 @@ export const drawQuestion = () => {
 };
 //console.log(questionData.askedQuestion)
 
-export const levelUpSum = () => {
+// Change level
+export const levelUp = () => {
   config.currentPrizeLevel = config.currentPrizeLevel - 1;
 };
 
