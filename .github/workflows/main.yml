@@ -1,0 +1,47 @@
+name: Cypress Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cypress_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main application repository
+        uses: actions/checkout@v2
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Deploy Preview Environment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          # Deploy the preview environment using Vercel CLI
+          vercel --token $VERCEL_TOKEN --prod false
+
+      - name: Wait for deployment to complete
+        run: |
+          # Wait for the Vercel deployment to complete
+          # You can use curl or any other method to check the deployment status
+          # For example, if your Vercel URL is https://my-preview.vercel.app:
+          # until $(curl --output /dev/null --silent --head --fail https://millionaire-quiz-app-git-main-markomilenkovic546.vercel.app/); do
+          #   sleep 5
+          # done
+          sleep 60
+
+      - name: Run Cypress Tests
+        run: |
+          # Clone the Cypress tests repository
+          git clone https://github.com/markomilenkovic546/millionare-quiz-app-e2e-test-automation.git
+
+          # Install dependencies
+          cd cypress-tests
+          npm install
+
+          # Run Cypress tests against the preview environment
+          npx cypress run --env baseUrl=https://millionaire-quiz-app-git-main-markomilenkovic546.vercel.app/
+
