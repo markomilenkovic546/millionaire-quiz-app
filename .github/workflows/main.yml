@@ -21,7 +21,7 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           # Deploy the preview environment using Vercel CLI
-          vercel --token $VERCEL_TOKEN --prod 
+          vercel --token $VERCEL_TOKEN --prod --confirm
 
       - name: Wait for deployment to complete
         run: |
