@@ -43,4 +43,5 @@ jobs:
 
           # Run Cypress tests against the preview environment
           npx cypress run --env baseUrl=https://millionaire-quiz-app-git-main-markomilenkovic546.vercel.app/
+          working-directory: ./millionare-quiz-app-e2e-test-automation
 
