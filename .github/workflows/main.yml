@@ -39,7 +39,6 @@ jobs:
           git clone https://github.com/markomilenkovic546/millionare-quiz-app-e2e-test-automation.git
 
           # Install dependencies
-          cd cypress-tests
           npm install
 
           # Run Cypress tests against the preview environment
