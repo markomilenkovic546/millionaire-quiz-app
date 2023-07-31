@@ -39,9 +39,10 @@ jobs:
           git clone https://github.com/markomilenkovic546/millionare-quiz-app-e2e-test-automation.git
 
           # Install dependencies
+          cd millionare-quiz-app-e2e-test-automation 
+          # Navigate to the Cypress repository
           npm install
 
           # Run Cypress tests against the preview environment
-          npx cypress run --env baseUrl=https://millionaire-quiz-app-git-main-markomilenkovic546.vercel.app/
-          working-directory: ./millionare-quiz-app-e2e-test-automation
+          npx cypress run --config-file ./cypress.config.js --env baseUrl=https://millionaire-quiz-app-git-main-markomilenkovic546.vercel.app/
 
