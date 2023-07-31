@@ -136,9 +136,16 @@ export const reactToWrongAnswer = (button) => {
 // Display the "Next question" button
 export const createNextQuestionButton = () => {
   // Displau button 3 seconds once the function is called
+  if (config.levelPrice != 1000000){
   setTimeout(function () {
     DOMSelectors.$nextQuestionBtn.style.visibility = "visible";
   }, 3000);
+}
+else {
+  setTimeout(function () {
+    window.location.reload();
+  }, 8000);
+}
 };
 
 export const handleClickOnNextQuestionButton = () => {

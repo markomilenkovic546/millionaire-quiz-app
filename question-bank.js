@@ -228,5 +228,3 @@ export const questionBank = [
  
   ];
   
-  
-  
