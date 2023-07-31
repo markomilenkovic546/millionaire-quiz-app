@@ -1,47 +1,47 @@
 export const questionBank = [
   {
     question: "What is the capital of France?",
-    options: ["London", "Paris", "Berlin", "Madrid"],
+    options: ["Berlin", "Madrid", "London", "Paris"],
     answer: "Paris"
   },
   {
     question: "Who painted the Mona Lisa?",
-    options: ["Pablo Picasso", "Vincent van Gogh", "Leonardo da Vinci", "Michelangelo"],
+    options: ["Michelangelo", "Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso"],
     answer: "Leonardo da Vinci"
   },
   {
     question: "Which planet is known as the Red Planet?",
-    options: ["Venus", "Jupiter", "Mars", "Saturn"],
+    options: ["Mars", "Saturn", "Venus", "Jupiter"],
     answer: "Mars"
   },
   {
     question: "What is the largest ocean on Earth?",
-    options: ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
+    options: ["Arctic Ocean", "Indian Ocean", "Atlantic Ocean", "Pacific Ocean"],
     answer: "Pacific Ocean"
   },
   {
     question: "Who wrote the novel 'Pride and Prejudice'?",
-    options: ["Jane Austen", "Charles Dickens", "F. Scott Fitzgerald", "Leo Tolstoy"],
+    options: ["Leo Tolstoy", "F. Scott Fitzgerald", "Charles Dickens", "Jane Austen"],
     answer: "Jane Austen"
   },
   {
     question: "What is the chemical symbol for the element gold?",
-    options: ["Ag", "G", "Au", "Go"],
+    options: ["Go", "Ag", "G", "Au"],
     answer: "Au"
   },
   {
     question: "What is the largest land animal?",
-    options: ["Hippopotamus", "Giraffe", "Elephant", "Rhinoceros"],
+    options: ["Giraffe", "Rhinoceros", "Hippopotamus", "Elephant"],
     answer: "Elephant"
   },
   {
     question: "In which city is the famous Taj Mahal located?",
-    options: ["Mumbai", "Jaipur", "Agra", "New Delhi"],
+    options: ["New Delhi", "Jaipur", "Mumbai", "Agra"],
     answer: "Agra"
   },
   {
     question: "What is the currency of Japan?",
-    options: ["Euro", "Dollar", "Yen", "Pound"],
+    options: ["Yen", "Pound", "Euro", "Dollar"],
     answer: "Yen"
   },
   {
@@ -51,177 +51,177 @@ export const questionBank = [
   },
   {
     question: "What is the capital of Australia?",
-    options: ["Canberra", "Melbourne", "Perth", "Sydney"],
+    options: ["Perth", "Melbourne", "Canberra", "Sydney"],
     answer: "Canberra"
   },
   {
     question: "Who wrote the play 'Romeo and Juliet'?",
-    options: ["Fyodor Dostoevsky", "Mark Twain", "Jane Austen", "William Shakespeare"],
+    options: ["William Shakespeare", "Fyodor Dostoevsky", "Mark Twain", "Jane Austen"],
     answer: "William Shakespeare"
   },
   {
     question: "Which country is famous for the pyramids?",
-    options: ["Mexico", "China", "Greece", "Egypt"],
+    options: ["Greece", "Mexico", "China", "Egypt"],
     answer: "Egypt"
   },
   {
     question: "What is the largest animal in the world?",
-    options: ["Giraffe", "Elephant", "Blue whale", "Hippopotamus"],
+    options: ["Hippopotamus", "Giraffe", "Elephant", "Blue whale"],
     answer: "Blue whale"
   },
   {
     question: "Who invented the telephone?",
-    options: ["Thomas Edison", "Nikola Tesla", "Albert Einstein", "Alexander Graham Bell"],
+    options: ["Albert Einstein", "Thomas Edison", "Nikola Tesla", "Alexander Graham Bell"],
     answer: "Alexander Graham Bell"
   },
   {
     question: "What is the capital of Canada?",
-    options: ["Toronto", "Montreal", "Ottawa", "Vancouver"],
+    options: ["Montreal", "Ottawa", "Vancouver", "Toronto"],
     answer: "Ottawa"
   },
   {
     question: "Who painted the famous artwork 'The Starry Night'?",
-    options: ["Pablo Picasso", "Claude Monet", "Salvador Dalí", "Vincent van Gogh"],
+    options: ["Claude Monet", "Vincent van Gogh", "Salvador Dalí", "Pablo Picasso"],
     answer: "Vincent van Gogh"
   },
   {
     question: "Which country is known for the Great Wall of China?",
-    options: ["Japan", "India", "South Korea", "China"],
+    options: ["India", "China", "South Korea", "Japan"],
     answer: "China"
   },
   {
     question: "What is the largest continent?",
-    options: ["Africa", "North America", "Europe", "Asia"],
+    options: ["North America", "Europe", "Asia", "Africa"],
     answer: "Asia"
   },
   {
     question: "Who is the author of the 'Harry Potter' book series?",
-    options: ["George R.R. Martin", "Dan Brown", "Stephen King", "J.K. Rowling"],
+    options: ["Dan Brown", "Stephen King", "J.K. Rowling", "George R.R. Martin"],
     answer: "J.K. Rowling"
   },
   {
     question: "What is the chemical symbol for the element oxygen?",
-    options: ["Ox", "Og", "O", "Om"],
+    options: ["Og", "Om", "O", "Ox"],
     answer: "O"
   },
   {
     question: "Which animal is known for its black and white stripes?",
-    options: ["Giraffe", "Cheetah", "Tiger", "Zebra"],
+    options: ["Cheetah", "Tiger", "Zebra", "Giraffe"],
     answer: "Zebra"
   },
   {
     question: "In which country is the city of Rio de Janeiro located?",
-    options: ["Argentina", "Colombia", "Brazil", "Mexico"],
+    options: ["Colombia", "Brazil", "Mexico", "Argentina"],
     answer: "Brazil"
   },
   {
     question: "What is the currency of Russia?",
-    options: ["Euro", "Dollar", "Russian Ruble", "Pound"],
+    options: ["Euro", "Pound", "Dollar", "Russian Ruble"],
     answer: "Russian Ruble"
   },
   {
     question: "Which country is known for the Eiffel Tower?",
-    options: ["Spain", "Germany", "France", "Italy"],
+    options: ["Spain", "Italy", "Germany", "France"],
     answer: "France"
   },
   {
     question: "What is the largest desert in the world?",
-    options: ["Gobi Desert", "Arabian Desert", "Antarctic Desert", "Sahara Desert"],
+    options: ["Arabian Desert", "Antarctic Desert", "Gobi Desert", "Sahara Desert"],
     answer: "Sahara Desert"
   },
   {
     question: "Who painted the famous artwork 'The Last Supper'?",
-    options: ["Pablo Picasso", "Vincent van Gogh", "Michelangelo", "Leonardo da Vinci"],
+    options: ["Michelangelo", "Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci"],
     answer: "Leonardo da Vinci"
   },
   {
     question: "Which country is known for the Angkor Wat temple complex?",
-    options: ["Thailand", "Vietnam", "Indonesia", "Cambodia"],
+    options: ["Vietnam", "Thailand", "Indonesia", "Cambodia"],
     answer: "Cambodia"
   },
   {
     question: "What is the tallest mountain in the world?",
-    options: ["K2", "Kangchenjunga", "Makalu", "Mount Everest"],
+    options: ["Kangchenjunga", "Makalu", "Mount Everest", "K2"],
     answer: "Mount Everest"
   },
   {
     question: "Who wrote the novel 'To Kill a Mockingbird'?",
-    options: ["Jane Austen", "Charles Dickens", "Mark Twain", "Harper Lee"],
+    options: ["Mark Twain", "Harper Lee", "Jane Austen", "Charles Dickens"],
     answer: "Harper Lee"
   },
   {
     question: "What is the chemical symbol for the element iron?",
-    options: ["Ir", "In", "Fe", "Io"],
+    options: ["Io", "Fe", "Ir", "In"],
     answer: "Fe"
   },
   {
     question: "Which bird is known for its ability to mimic human speech?",
-    options: ["Eagle", "Penguin", "Ostrich", "Parrot"],
+    options: ["Penguin", "Ostrich", "Parrot", "Eagle"],
     answer: "Parrot"
   },
   {
     question: "In which country is the city of Istanbul located?",
-    options: ["Greece", "Egypt", "Iran", "Turkey"],
+    options: ["Egypt", "Iran", "Turkey", "Greece"],
     answer: "Turkey"
   },
   {
     question: "What is the currency of South Africa?",
-    options: ["Euro", "Dollar", "South African Rand", "Pound"],
+    options: ["Dollar", "Euro", "Pound", "South African Rand"],
     answer: "South African Rand"
   },
   {
     question: "Which country is known for the Colosseum?",
-    options: ["Spain", "Greece", "Egypt", "Italy"],
+    options: ["Greece", "Spain", "Egypt", "Italy"],
     answer: "Italy"
   },
   {
     question: "What is the largest lake in Africa?",
-    options: ["Lake Tanganyika", "Lake Malawi", "Lake Turkana", "Lake Victoria"],
+    options: ["Lake Malawi", "Lake Turkana", "Lake Victoria", "Lake Tanganyika"],
     answer: "Lake Victoria"
   },
   {
     question: "Who painted the famous artwork 'The Scream'?",
-    options: ["Salvador Dalí", "Pablo Picasso", "Vincent van Gogh", "Edvard Munch"],
+    options: ["Vincent van Gogh", "Edvard Munch", "Salvador Dalí", "Pablo Picasso"],
     answer: "Edvard Munch"
   },
   {
     question: "Which country is known for the Acropolis?",
-    options: ["Italy", "Egypt", "Greece", "Spain"],
+    options: ["Spain", "Greece", "Italy", "Egypt"],
     answer: "Greece"
   },
   {
     question: "What is the highest waterfall in the world?",
-    options: ["Niagara Falls", "Iguazu Falls", "Victoria Falls", "Angel Falls"],
+    options: ["Iguazu Falls", "Victoria Falls", "Angel Falls", "Niagara Falls"],
     answer: "Angel Falls"
   },
   {
     question: "Who wrote the novel '1984'?",
-    options: ["Ray Bradbury", "Aldous Huxley", "Hermann Hesse", "George Orwell"],
+    options: ["George Orwell", "Ray Bradbury", "Hermann Hesse", "Aldous Huxley"],
     answer: "George Orwell"
   },
   {
     question: "What is the chemical symbol for the element sodium?",
-    options: ["So", "Ne", "Na", "No"],
+    options: ["No", "Na", "Ne", "So"],
     answer: "Na"
   },
   {
     question: "Which animal is known as the 'King of the Jungle'?",
-    options: ["Tiger", "Leopard", "Cheetah", "Lion"],
+    options: ["Leopard", "Cheetah", "Lion", "Tiger"],
     answer: "Lion"
   },
   {
     question: "In which country is the city of Athens located?",
-    options: ["Italy", "Egypt", "Spain", "Greece"],
+    options: ["Spain", "Italy", "Greece", "Egypt"],
     answer: "Greece"
   },
   {
     question: "What is the currency of Brazil?",
-    options: ["Euro", "Dollar", "Brazilian Real", "Pound"],
+    options: ["Dollar", "Euro", "Pound", "Brazilian Real"],
     answer: "Brazilian Real"
   },
   {
     question: "Which country is known for the Great Barrier Reef?",
-    options: ["New Zealand", "Fiji", "Maldives", "Australia"],
+    options: ["Fiji", "Maldives", "Australia", "New Zealand"],
     answer: "Australia"
   }
 
