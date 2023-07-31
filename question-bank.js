@@ -219,11 +219,7 @@ export const questionBank = [
     options: ["Dollar", "Euro", "Pound", "Brazilian Real"],
     answer: "Brazilian Real"
   },
-  {
-    question: "Which country is known for the Great Barrier Reef?",
-    options: ["Fiji", "Maldives", "Australia", "New Zealand"],
-    answer: "Australia"
-  }
+
 
  
   ];
